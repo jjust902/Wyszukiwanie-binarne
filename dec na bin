@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int DecNaBin (int liczba){
+    int tab[31];
+    int i = 0;
+    while (liczba != 0) {
+        tab[i++] = liczba % 2;
+        liczba = liczba / 2;
+    }
+    for (int j = i -1; j >= 0; j--) {
+        cout << tab[j];
+    }
+    return 0;
+}
+
+int main() {
+    int liczba;
+    cout << "Podaj liczbę dziesiętną: " << endl;
+    cin >> liczba;
+    cout << "liczba " << liczba << " po zamianie na postać binarna to: ";
+    DecNaBin(liczba);
+    return 0;
+}
