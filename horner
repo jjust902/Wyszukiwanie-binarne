@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int horner (int wsp[], int st, int x){
+    if (st == 0){
+        return wsp[0];
+    }
+    retutn x * horner(wsp, st - 1, x) + wsp[st];
+}
+
+int main() {
+    int *wspolczynnik;
+    int stopien;
+    int argument;
+    cout << "Podaj stopien wielomianu: ";
+    cin >> stopien;
+    wspolczynnik = new int[stopien + 1];
+    for (int i = 0; i <= stopien; i++){
+        cout << "Podaj wspolczynnik stojacy przy potedze " << i << ": ";
+        cin >> wspolczynnik[i];
+    }
+    cout << "Podaj argument: ";
+    cin >> argument;
+    int wynik = horner(wspolczynnik, stopien, argument);
+    cout << "W( " << argument << " ) = " << wynik << endl;
+    delete[] wspolczynnik;
+    return 0;
+}
